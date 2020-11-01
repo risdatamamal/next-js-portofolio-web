@@ -1,9 +1,13 @@
 import Link from "next/link";
 import Navbar from "../components/Navbar";
+import Head from "next/head";
 
 function Portofolio() {
   return (
     <>
+      <Head>
+        <title>Portofolio</title>
+      </Head>
       <Navbar />
 
       <section className="hero">
