@@ -113,29 +113,29 @@ a[href] {
 	}
 }
 
-.portfolio-wrapper {
+.portofolio-wrapper {
 	display: flex;
 	margin-left: -10px;
 	margin-right: -10px;
 
-	.portfolio-item {
+	.portofolio-item {
 		width: 50%;
 		padding-left: 10px;
 		padding-right: 10px;
 		text-align: center;
 
-		.portfolio-image {
+		.portofolio-image {
 			max-width: 100%;
 		}
 
-		.portfolio-name {
+		.portofolio-name {
 			font-size: 24px;
 			margin-top: 10px;
 			margin-bottom: 10px;
 			text-transform: capitalize;
 		}
 
-		.portfolio-category {
+		.portofolio-category {
 			color: #999;
 		}
 	}
