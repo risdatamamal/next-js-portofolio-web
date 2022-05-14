@@ -1,8 +1,39 @@
-import Link from "next/link";
+import React, { useEffect, useRef} from "react";
+import { Document, Page} from "react-pdf";
 import Navbar from "../components/Navbar";
 import Head from "next/head";
 
 function Portofolio() {
+
+  const canvasRef = useRef(null);
+
+  // function onDocumentLoadSuccess({ numPages: nextNumPages }) {
+  //   setNumPages(nextNumPages);
+  // }
+
+  useEffect(() => {
+    (async function () {
+      // We import this here so that it's only loaded during client-side rendering.
+      const pdfJS = await import("pdfjs-dist/build/pdf");
+      pdfJS.GlobalWorkerOptions.workerSrc =
+        window.location.origin + "/pdf.worker.min.js";
+      const pdf = await pdfJS.getDocument("portofolio.pdf").promise;
+
+      const page = await pdf.getPage(1);
+      const viewport = page.getViewport({ scale: 1.5 });
+
+      // Prepare canvas using PDF page dimensions.
+      const canvas = canvasRef.current;
+      const canvasContext = canvas.getContext("2d");
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+
+      // Render PDF page into canvas context.
+      const renderContext = { canvasContext, viewport };
+      page.render(renderContext);
+    })();
+  }, []);
+
   return (
     <>
       <Head>
@@ -15,24 +46,22 @@ function Portofolio() {
           <div className="text-wrapper w-full">
             <h1 className="title">Portofolio</h1>
             <p className="description">
-              Sint minim et Lorem minim aliquip reprehenderit pariatur. Labore
-              qui exercitation sint amet amet est ad excepteur. Consectetur
-              fugiat minim voluptate elit mollit pariatur ullamco irure et
-              incididunt mollit. Nostrud laborum labore Lorem veniam ut laboris
-              consectetur enim minim aliqua.
+              Berikut merupakan portfolio saya dari berbagai project. Mulai dari
+              joki tugas akhir, dan project Internship.
             </p>
 
             <div className="portofolio-wrapper">
-              <div className="portofolio-item">
-                <img src="/nntn-kuy.png" className="portofolio-image" />
-                <h4 className="portofolio-name">NontonKuy App</h4>
-                <div className="portofolio-category">Mobile Dev</div>
-              </div>
-              <div className="portofolio-item">
-                <img src="/nntn-kuy.png" className="portofolio-image" />
-                <h4 className="portofolio-name">Nonton App </h4>
-                <div className="portofolio-category">Mobile Dev</div>
-              </div>
+              <canvas ref={canvasRef} style={{ height: "100vh" }} />
+              {/* <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
+                {Array.from({ length: numPages }, (_, index) => (
+                  <Page
+                    key={`page_${index + 1}`}
+                    pageNumber={index + 1}
+                    renderAnnotationLayer={false}
+                    renderTextLayer={false}
+                  />
+                ))}
+              </Document> */}
             </div>
           </div>
         </div>
