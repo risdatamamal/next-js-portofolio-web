@@ -1,19 +1,23 @@
 {
-  "name": "porto-app",
+  "name": "risdatamamal-react",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "next": "^12.1.6",
-    "pdfjs-dist": "^2.7.570",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-pdf": "^5.2.0",
-    "sass": "^1.28.0",
-    "standard": "^16.0.1"
+    "@next/font": "13.1.5",
+    "jquery": "^3.6.3",
+    "jquery-mousewheel": "^3.1.13",
+    "malihu-custom-scrollbar-plugin": "^3.1.5",
+    "next": "13.1.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "swiper": "^9.0.1",
+    "waypoints": "^4.0.1",
+    "wowjs": "^1.1.3"
   }
 }
