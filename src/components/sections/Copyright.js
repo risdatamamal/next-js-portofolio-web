@@ -10,31 +10,28 @@ const Copyright = () => {
         <span>© {new Date().getFullYear()} Risda Tamam Aljava</span>
         <span>
           Designed By{" "}
-          <a
-            target="_blank"
-            href="#"
-          >
+          <a target="_blank" href="#">
             Risdatamamal
           </a>
         </span>
         <ul>
           <li>
-            <a href="#">
+            <a href="https://github.com/risdatamamal">
               <i className="fa-brands fa-github" />
             </a>
           </li>
           <li>
-            <a href="#">
-              <i className="fa-brands fa-twitter" />
+            <a href="https://www.linkedin.com/in/risdatamamal/">
+              <i className="fa-brands fa-linkedin" />
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="https://www.instagram.com/_risdatamamal/">
               <i className="fa-brands fa-instagram" />
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="https://www.facebook.com/risdatamamal/">
               <i className="fa-brands fa-facebook" />
             </a>
           </li>
